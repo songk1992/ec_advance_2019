@@ -1,0 +1,40 @@
+
+#include "gl/glut.h"
+
+void MyDisplay() {
+
+	//화면을 검은색으로 지운다
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	//폴리곤을 4점으로 나누어서 그린다.  
+	glBegin(GL_POLYGON);
+	glVertex3f(-0.5, -0.5, 0.0);
+	glVertex3f(0.5, -0.5, 0.0);
+	glVertex3f(0.5, 0.5, 0.0);
+	glVertex3f(-0.5, 0.5, 0.0);
+
+	glEnd();
+	glFlush();
+}
+
+int main(int argc, char** argv)
+
+{
+
+	glutInit(&argc, argv);
+  
+	//윈도우를 만든다
+	glutCreateWindow("OpenGL Initialize Test");
+
+	//MyDisplay라는 함수를 통해 화면에 그린다
+	glutDisplayFunc(MyDisplay);
+
+	//실행시키기 위해서 반드시 적어야한다
+	glutMainLoop();
+
+	return 0;
+}
+  
+  
+  // 검은색 배경화면에 흰색 사각형을 그림
+  // reference http://ssuocw.ssu.ac.kr/post/836
